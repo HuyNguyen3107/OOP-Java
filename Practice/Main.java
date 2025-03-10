@@ -11,12 +11,20 @@ class BankAccount {
         this.balance = balance;
     }
 
+    public BankAccount() {
+        
+    }
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
 
     public int getBalance() {
         return this.balance;
+    }
+
+    public int getBalance(int defaultBalance) {
+        return 0;
     }
 
     public void setOwner(String owner) {
