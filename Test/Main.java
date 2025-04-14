@@ -1,33 +1,21 @@
-public class Main{
-    private String name;
-    private String location;
-    private int weight;
+import java.util.*;
+import java.io.*;
 
-    public Main(String name){
-        this.name = name;
-        this.location = "shelf";
-        this.weight = 1;
-    }
-    public Main(String name,String location){
-        this.name = name;
-        this.location = location;
-        this.weight = 1;
-    }
-    public Main(String name,int weight){
-        this.name = name;
-        this.location = "shelf";
-        this.weight = weight;
-    }
-    public String toString() {
-        return"Main{name='" + name + "',location='" + location +"',weight='" + weight +"'}";
-    }
-    public static void main(String[] args){
-        Main tapeMeasure = new Main("Tape measure");
-        Main plaster = new Main("Plaster","home improvement section");
-        Main tyre = new Main("Tyre", 5);
+public class Main {
 
-        System.out.println(tapeMeasure);
-        System.out.println(plaster);
-        System.out.println(tyre);
+    public static int calDivision(int number) throws Exception {
+        if (number == 0) {
+            throw new Exception("Division by zero is not allowed.");
+        }
+        return 4 / number; // This will throw an ArithmeticException
+    }
+
+    public static void main(String[] args)  {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Result: " + calDivision(scanner.nextInt()));
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
     }
 }
