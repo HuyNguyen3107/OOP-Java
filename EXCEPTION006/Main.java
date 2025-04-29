@@ -4,27 +4,27 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int t = Integer.parseInt(sc.nextLine()); // Number of test cases
+        int t = Integer.parseInt(sc.nextLine()); 
         while (t-- > 0) {
-            String str = sc.nextLine(); // Read the actual string
+            String str = sc.nextLine(); 
             try {
-                String result = solve(str); // Check for vowels
-                System.out.println(result); // Print result
+                String result = solve(str); 
+                System.out.println(result); 
             } catch (Exception e) {
-                System.out.println(e.getMessage()); // Handle any exceptions
+                System.out.println(e.getMessage()); 
             }
         }
     }
 
     public static String solve(String str) throws Exception {
-        str = str.toLowerCase(); // Convert to lowercase
-        char[] arr = str.toCharArray(); // Convert string to char array
-        String vowels = "aeiou"; // Vowels
+        str = str.toLowerCase(); 
+        char[] arr = str.toCharArray(); 
+        String vowels = "aeiou"; 
         for (char c : arr) {
-            if (vowels.indexOf(c) != -1) { // Check if character is a vowel
+            if (vowels.indexOf(c) != -1) { 
                 return "String has vowels"; 
             }
         }
-        throw new Exception("String not contain vowels"); // Throw exception if no vowels
+        throw new Exception("String not contain vowels"); 
     }
 }

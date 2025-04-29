@@ -16,7 +16,7 @@ class UsedCar {
     private double price;
 
     public UsedCar(String vin, String make, int year, int mileage, double price) throws UsedCarException {
-        if (!vin.matches("\\d{4}")) {
+        if (!(vin.length() == 4)) {
             throw new UsedCarException(vin);
         }
 

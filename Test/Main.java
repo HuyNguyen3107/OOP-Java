@@ -1,21 +1,39 @@
 import java.util.*;
-import java.io.*;
+
+
+class NumberNotEqualOneException extends Exception {
+    public NumberNotEqualOneException(String message) {
+        super(message);
+    }
+}
 
 public class Main {
-
-    public static int calDivision(int number) throws Exception {
-        if (number == 0) {
-            throw new Exception("Division by zero is not allowed.");
+    
+    public static int division() throws ArithmeticException, NumberNotEqualOneException {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
         }
-        return 4 / number; // This will throw an ArithmeticException
-    }
 
-    public static void main(String[] args)  {
-        Scanner scanner = new Scanner(System.in);
+        if (num == 1) {
+            throw new NumberNotEqualOneException("Number is equal to one.");
+        }
+
+        return 4 / num;
+    }
+    
+    public static void main(String[] args) {
         try {
-            System.out.println("Result: " + calDivision(scanner.nextInt()));
+            division();
+        } catch (ArithmeticException e) {
+            System.out.println("Caught an ArithmeticException: " + e.getMessage());
+        } catch (NumberNotEqualOneException e) {
+            System.out.println("Caught a NumberNotEqualOneException: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
+            System.out.println("Caught a general Exception: " + e.getMessage());
+        } finally {
+            System.out.println("Execution completed.");
         }
     }
 }
